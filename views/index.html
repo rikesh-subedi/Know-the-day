@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="keywords" content="freelance, web designer, web design, web developer, web development, E-commerce web development, directory script, webpage developer, Content Management System (CMS), Search Engine Optimization ">
+
+    <meta name="description" content="Rikesh Subedi is working as web freelancer using tools of   ajax, Javascript.">
+    <link rel='stylesheet' href='/lib/demo.css' />
+    <link rel='stylesheet' href='/css/icomoon.css' />
+    <link rel='stylesheet' href='/css/style.css' />
+    <link href='images/favicon.png' rel='icon' type='image/x-icon' />
+    <!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <!--
+    <script type="text/javascript" src="http://code.angularjs.org/1.2.1/angular.js"></script>
+    <script type="text/javascript" src="http://code.angularjs.org/1.2.1/angular-animate.js"></script>
+    -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-36835021-2', 'rikeshsubedi.com');
+        ga('send', 'pageview');
+    </script>
+    <script src="lib/angular-1.2.1.js"></script>
+    <script src="lib/angular-animate-1.2.1.js"></script>
+
+
+    <!---->
+    <script src="lib/angular-touch.js"></script>
+    <script src="lib/angular-resource.js"></script>
+
+    <script src="lib/angular-route.js"></script>
+    <title>Rikesh|Home|About|Skills|Projects|Contact</title>
+    <style type="text/css">
+    </style>
+</head>
+
+<body ng-controller="MainCtrl">
+
+    <div class='header row-fluid'>
+        <div class='span12'>
+            <div class="col-12">
+
+                <a id="logo" class="logo" href="/">Rikesh Subedi</a>
+                <!-- <div class="icon-nav">navigation</div> -->
+
+                <ul class="social">
+                    <li class="facebook"><a href="http://www.facebook.com/rikesh1989" title="Like me on Facebook" class='icon icon-facebook' target="_blank"></a>
+                    </li>
+                    <li class="twitter"><a href="http://www.twitter.com/rik3d3" title="Follow me on Twitter" class='icon icon-twitter' target="_blank"></a>
+                    </li>
+                    <!-- <li class="dribbble"><a href="http://www.dribbble.com/adhamdannaway" title="See my Dribbble shots" target="_blank">dribbble</a>
+                    </li> -->
+                    <li class="linkedin"><a href="http://www.linkedin.com/pub/rikesh-subedi/61/381/646" title="Connect with me on Linkedin" class='icon icon-linkedin' target="_blank"></a>
+                    </li>
+                </ul>
+                <div id="nav" class="" style="opacity: 1;" ng-click='navShow();'><span id="navTxt" style="margin-top:{{0-74*(navIndex+1)}}px" hidden-repeat='navigators'>Navigation<br>
+                </span>
+                <span class="menu-span"><i class="menu-button icon-menu2" ></i></span>
+                </div>
+
+                <!-- <nav>
+
+                    <ul id="nav">
+                        <li class="page_item page-item-2 current_page_item"><a href="/about">about</a>
+                        </li>
+                        <li class="page_item page-item-5"><a href="/featured">featured</a>
+                        </li>
+                        <li class="page_item page-item-7"><a href="/portfolio">portfolio</a>
+                        </li>
+                        <li class="page_item page-item-9"><a href="/blog">blog</a>
+                        </li>
+                        <li class="page_item page-item-11"><a href="/contact">contact</a>
+                        </li>
+
+                    </ul>
+
+                </nav> -->
+
+            </div>
+        </div>
+    </div>
+
+    <div ng-view class='my-slide-animation main-view '>
+
+
+    </div>
+    <aside class='left-aside nav hide'>
+        <div class="shadow">
+                <nav>
+                    <ul>
+                        <li ng-repeat='nav in navigators'><a  ng-click="{{nav.action}}; navShow($index);" class="navItem" style="margin-left: 0px; opacity: 1;"><i class="icon-spinner3"></i>{{nav.text}}</a></li>
+                        <!-- <li><a  ng-click="gotoMySkills(); navShow();" class="navItem" style="margin-left: 0px; opacity: 1;"><i class="icon-spinner3"></i>My Skills</a></li>
+                        <li><a  ng-click=" navShow();" class="navItem" id="toServiceBtn" style="margin-left: 0px; opacity: 1;"><i class="icon-spinner3"></i>Portfolio</a></li>
+                        <li><a ng-click=" navShow();" class="navItem" id="toReferencesBtn" style="margin-left: 0px; opacity: 1;"><i class="icon-spinner3"></i>References</a></li>
+                        <li  class="navLine"><a ng-click=" navShow();"class="navItem" style="margin-left: 0px; opacity: 1;"><i class="icon-spinner3"></i>Contact Me</a></li> -->
+                    </ul>
+                    <div class="navLine navImprint"><a href="#imprint" id="btnImprint" style="margin-left: 0px; opacity: 1;">Impressum</a></div>
+                </nav>
+                <div id="imprint" style="display: none;">
+                    <div id="imprintBox">
+                        <a name="imprint"></a>
+                        <div id="iAddress">
+                            <h3>Impressum</h3>
+                            <p>LS5 Medienbüro<br>Hummelstraße 9a<br>79100 Freiburg im Breisgau<br>Baden-Württemberg, Deutschland</p>
+                            <p>Telefon: +49 761 59 01 224<br>Telefax: +49 761 59 01 563<br>E-Mail: <a href="mailto:Guten.Tag@ls5.de">Guten.Tag@ls5.de</a><br>Internet: <a href="http://www.ls5.de/" title="LS5 / Digitale Medien">www.ls5.de</a></p>
+                            <p>Inhaber und verantwortlich für den Inhalt<br>nach § 55 Abs. 2 RStV: Stefan Grimm</p><p>Steuernummer: 06078/53994</p>
+                        </div>
+                        <div id="iPrivacy">
+                            <h3>Datenschutz</h3>
+                            <p>Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.</p>
+                            <p>Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.</p>
+                            <p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.</p>
+                            <p> </p>
+                            <h3>Datenschutzerklärung für die Nutzung von Google Analytics</h3>
+                            <p>Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. ("Google"). Google Analytics verwendet sog. "Cookies", Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Im Falle der Aktivierung der IP-Anonymisierung auf dieser Webseite wird Ihre IP-Adresse von Google jedoch innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt.</p>
+                            <p>Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengeführt.</p>
+                            <p>Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können. Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem sie das unter dem folgenden Link verfügbare Browser-Plugin herunterladen und installieren: <a href="http://tools.google.com/dlpage/gaoptout?hl=de" target="_blank">tools.google.com/dlpage/gaoptout?hl=de</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </aside>
+    <div class="footer row-fluid"></div>
+
+
+
+</body>
+
+<script src="lib/ui-bootstrap-tpls-0.6.0.min.js"></script>
+<script src="lib/jquery-1.7.1.js"></script>
+<script src="lib/bootstrap.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/memory-services.js"></script>
+<script src="js/rest-services.js"></script>
+
+</html>

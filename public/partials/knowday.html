@@ -1,0 +1,202 @@
+<style>
+.flex-container{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.flex-item {
+
+}
+ #date_control {
+    width: 100%;
+background: #e5e5e5;
+height: 57px;
+padding: 10px;
+position:relative;
+ }
+ #date_control>div {
+        float:left;
+        padding:5px;
+ }
+#date_control #show_month, #date_control #show_day {
+position: absolute;
+top: 46px;
+background: #a0a0a0;
+width: 170px;
+padding: 5px;
+
+}
+.show-month-a, .show-day-a {
+    min-width:30px;
+    padding:1px;
+    margin:5px;
+    background: #404040;
+    border-radius:5px;
+    cursor:pointer;
+    color:white;
+    text-align: center;
+}
+.show-month-a:hover, .show-day-a:hover{
+    background:#808080;
+}
+#date_control #show_month.show:before, #date_control #show_day.show:before{
+    content:'';
+    border-color:#fff;
+    border-bottom:30px;
+    border-left:30px;
+
+}
+.show_day_a, .show_month_a{
+padding: 1px;
+background: none repeat scroll 0% 0% #404040;
+border-radius: 5px;
+min-width:30px;
+margin: 1px;
+display: inline-table;
+cursor:pointer;
+}
+.show_day_a:hover, .show_month_a:hover{
+ background: #a0a0a0;
+}
+.highlighted {
+    background:blue;
+}
+.button {
+    padding: 5px;
+background: #393939;
+cursor: pointer;
+}
+.drop-menu>a{
+padding: 5px;
+background: #CAD6D5;
+cursor: pointer;  
+border:1px dashed black; 
+width:80px;
+}
+.my-repeat-animation.ng-enter, 
+.my-repeat-animation.ng-leave, 
+.my-repeat-animation.ng-move {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+  position:relative;
+}
+.my-repeat-animation-topics.ng-enter, 
+.my-repeat-animation-topics.ng-leave, 
+.my-repeat-animation-topics.ng-move {
+  -webkit-transition: 1s linear all;
+  transition:1s linear all;
+  position:relative;
+}
+.my-repeat-animation.ng-enter {
+  top:100px;
+  opacity:0;
+}
+.my-repeat-animation.ng-enter.ng-enter-active {
+  top:0;
+  opacity:1;
+}
+
+.my-repeat-animation.ng-leave {
+  left:0px;
+  opacity:1;
+}
+.my-repeat-animation.ng-leave.ng-leave-active {
+  left:-100px;
+  opacity:0;
+}
+
+.my-repeat-animation.ng-move {
+  opacity:0.5;
+}
+.my-repeat-animation.ng-move.ng-move-active {
+  opacity:1;
+}
+.filter-div{
+    padding:5px;
+    margin:5px;
+}
+.topics-flex-container{
+
+}
+.topics-flex-item{
+    width: 425px;
+margin: 10px;
+border: 2px solid rgb(240, 234, 234);
+padding: 20px;
+border-radius: 5px;
+}
+.topics-header{
+    height:50px;
+}
+.topics-body{
+    height:350px;
+    overflow-y:scroll;
+}
+.info{
+    padding:2px;
+
+}
+.info:hover{
+    color:#404040;
+}
+.info a{
+    color: #808080;
+    text-decoration:none;
+}
+@media screen and (max-width: 560px){
+    #date_control {
+       height:100px
+    }
+    .filter-div{
+        width:100%;
+        display:block;
+    }
+}
+</style>
+<div id='date_control' style='width:100%;'>
+    <div class='drop-menu'>
+
+        <a class='month' ng-click='showMonth()'>{{current_month}}</a>
+        <div id='show_month' ng-show='showMonthFlag' class='flex-container'>
+            <a ng-repeat =' month in monthList' class='show-month-a flex-item' ng-class="{ highlighted: current_month === month }" ng-click='updateMonth(month)'> {{month}} </a>
+        </div>
+    </div>
+    <div class='drop-menu'>
+        <a class='day' ng-click='showDay();'>{{current_day}}</a>
+         <div id='show_day' ng-show='showDayFlag' class='flex-container'>
+            <a ng-repeat ='i in getNumber(daysInMonth) ' class='show-day-a flex-item' ng-class="{ highlighted: current_day === $index +1 }" ng-click='updateDay($index +1)'> {{$index+1}} </a>
+        </div>
+    </div>
+    <div>
+        <a class='know-day-button button' ng-click='getDayInfo();'> Get Day Info</a>
+    </div>
+    <div class='filter-div'>
+         <span style='white-space: nowrap;'> Filter: <span> <input type='search' class='filter' ng-model="searchText">
+    </div>
+   
+</div>
+<!--  <tabset>
+    <tab ng-repeat="d in topics" heading="{{d}}" >
+       <div ng-repeat = 'a in dayInfo[d].values | filter:searchText' class="my-anim my-repeat-animation" >
+        <a href='{{"http://en.wikipedia.org" +a.href}}'><span>{{a.text}}</span></a>
+        </div>
+
+    </tab>
+    
+  </tabset> -->
+
+<div class='flex-container topics-flex-container'>
+<div ng-repeat ='d in topics' id='{{d}}'  class="my-anim my-repeat-animation-topics topics-flex-item flex-item">
+    <div class='topics-header'>
+         <h2>{{d}}</h2>
+    </div>
+    <div class='topics-body'>
+
+    <div ng-repeat = 'a in dayInfo[d].values | filter:searchText' class="my-anim my-repeat-animation info" >
+        <a href='{{"http://en.wikipedia.org" +a.href}}' ><span>{{a.text}}</span></a>
+        
+    </div>
+
+    </div>
+</div>
+</div>
